@@ -21,6 +21,6 @@ class UserController extends Controller
         $response['header'] = $this->datatable->tableHeader();
         $response['data'] = $this->datatable->query()->paginate(request('pre_page'));
 
-        return $response;
+        return $this->response($response);
     }
 }
