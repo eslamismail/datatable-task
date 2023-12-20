@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    // public $datatable;
     public $datatable;
     public function __construct(User $user)
     {
@@ -19,7 +18,7 @@ class UserController extends Controller
     public function index()
     {
         $response['header'] = $this->datatable->tableHeader();
-        $response['data'] = $this->datatable->query()->paginate(request('pre_page'));
+        $response['data'] = $this->datatable->query()->paginate(request('per_page'));
 
         return $this->response($response);
     }

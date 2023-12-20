@@ -7,56 +7,31 @@
 	},
 	"item": [
 		{
-			"name": "datatable api for any model",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
+			"name": "users index in datatable",
 			"request": {
 				"method": "GET",
 				"header": [
 					{
 						"key": "Accept",
-						"value": "application/json"
+						"value": "application/json",
+						"type": "text"
 					},
 					{
-						"key": "Accept-Language",
-						"value": "en-US,en;q=0.9"
-					},
-					{
-						"key": "Connection",
-						"value": "keep-alive"
-					},
-					{
-						"key": "Origin",
-						"value": "http://127.0.0.1:3000"
-					},
-					{
-						"key": "Referer",
-						"value": "http://127.0.0.1:3000/"
-					},
-					{
-						"key": "User-Agent",
-						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n          \"email\" => $email,\r\n                    'password' => $password,\r\n                    'device_name' => 'PC',\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "http://datatable-task.test/test?sort[column][]=id&sort[asc][]=desc&sort[column][]=name&sort[asc][]=asc&filter[column][]=name&filter[opreator][]=like&filter[value][]=Mills&",
+					"raw": "http://datatable-task.test/api/users?sort[column][]=id&sort[asc][]=desc&sort[column][]=name&sort[asc][]=asc&filter[column][]=name&filter[opreator][]=like&filter[value][]=Mills&page=1&per_page=10",
 					"protocol": "http",
 					"host": [
 						"datatable-task",
 						"test"
 					],
 					"path": [
-						"test"
+						"api",
+						"users"
 					],
 					"query": [
 						{
@@ -86,59 +61,45 @@
 						{
 							"key": "filter[value][]",
 							"value": "Mills"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "per_page",
+							"value": "10"
 						}
 					]
 				}
 			},
 			"response": [
 				{
-					"name": "datatable api for any model",
+					"name": "New Request",
 					"originalRequest": {
 						"method": "GET",
 						"header": [
 							{
 								"key": "Accept",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
 							},
 							{
-								"key": "Accept-Language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "Connection",
-								"value": "keep-alive"
-							},
-							{
-								"key": "Origin",
-								"value": "http://127.0.0.1:3000"
-							},
-							{
-								"key": "Referer",
-								"value": "http://127.0.0.1:3000/"
-							},
-							{
-								"key": "User-Agent",
-								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n          \"email\" => $email,\r\n                    'password' => $password,\r\n                    'device_name' => 'PC',\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "http://datatable-task.test/test?sort[column][]=id&sort[asc][]=desc&sort[column][]=name&sort[asc][]=asc&filter[column][]=name&filter[opreator][]=like&filter[value][]=Mills&",
+							"raw": "http://datatable-task.test/api/users?sort[column][]=id&sort[asc][]=desc&sort[column][]=name&sort[asc][]=asc&filter[column][]=name&filter[opreator][]=like&filter[value][]=Mills&page=1&per_page=10",
 							"protocol": "http",
 							"host": [
 								"datatable-task",
 								"test"
 							],
 							"path": [
-								"test"
+								"api",
+								"users"
 							],
 							"query": [
 								{
@@ -170,8 +131,12 @@
 									"value": "Mills"
 								},
 								{
-									"key": "",
-									"value": null
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "per_page",
+									"value": "10"
 								}
 							]
 						}
@@ -182,7 +147,7 @@
 					"header": [
 						{
 							"key": "Date",
-							"value": "Tue, 19 Dec 2023 04:13:30 GMT"
+							"value": "Wed, 20 Dec 2023 03:12:32 GMT"
 						},
 						{
 							"key": "Server",
@@ -197,8 +162,16 @@
 							"value": "no-cache, private"
 						},
 						{
-							"key": "Vary",
-							"value": "Authorization"
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
 						},
 						{
 							"key": "Keep-Alive",
@@ -218,7 +191,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"header\": [\n        {\n            \"label\": \"ID\",\n            \"value\": \"id\"\n        },\n        {\n            \"label\": \"NAME\",\n            \"value\": \"name\"\n        },\n        {\n            \"label\": \"EMAIL\",\n            \"value\": \"email\"\n        },\n        {\n            \"label\": \"EMAIL VERIFIED AT\",\n            \"value\": \"email_verified_at\"\n        },\n        {\n            \"label\": \"CREATED AT\",\n            \"value\": \"created_at\"\n        },\n        {\n            \"label\": \"UPDATED AT\",\n            \"value\": \"updated_at\"\n        }\n    ],\n    \"data\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id\": 1000,\n                \"name\": \"Jerald Mills V\",\n                \"email\": \"eklocko@example.org\",\n                \"email_verified_at\": \"2023-12-19T03:01:46.000000Z\",\n                \"created_at\": \"2023-12-19T03:01:49.000000Z\",\n                \"updated_at\": \"2023-12-19T03:01:49.000000Z\"\n            },\n            {\n                \"id\": 500,\n                \"name\": \"Dr. Holden Mills V\",\n                \"email\": \"hermann.oda@example.com\",\n                \"email_verified_at\": \"2023-12-19T03:01:46.000000Z\",\n                \"created_at\": \"2023-12-19T03:01:48.000000Z\",\n                \"updated_at\": \"2023-12-19T03:01:48.000000Z\"\n            },\n            {\n                \"id\": 353,\n                \"name\": \"Jovan Mills\",\n                \"email\": \"cummings.monty@example.net\",\n                \"email_verified_at\": \"2023-12-19T03:01:46.000000Z\",\n                \"created_at\": \"2023-12-19T03:01:47.000000Z\",\n                \"updated_at\": \"2023-12-19T03:01:47.000000Z\"\n            },\n            {\n                \"id\": 22,\n                \"name\": \"Darrin Mills\",\n                \"email\": \"hills.juwan@example.org\",\n                \"email_verified_at\": \"2023-12-19T03:01:46.000000Z\",\n                \"created_at\": \"2023-12-19T03:01:46.000000Z\",\n                \"updated_at\": \"2023-12-19T03:01:46.000000Z\"\n            }\n        ],\n        \"first_page_url\": \"http://datatable-task.test/test?page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://datatable-task.test/test?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://datatable-task.test/test?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://datatable-task.test/test\",\n        \"per_page\": 15,\n        \"prev_page_url\": null,\n        \"to\": 4,\n        \"total\": 4\n    }\n}"
+					"body": "{\n    \"data\": {\n        \"header\": [\n            {\n                \"label\": \"ID\",\n                \"value\": \"id\"\n            },\n            {\n                \"label\": \"NAME\",\n                \"value\": \"name\"\n            },\n            {\n                \"label\": \"EMAIL\",\n                \"value\": \"email\"\n            },\n            {\n                \"label\": \"EMAIL VERIFIED AT\",\n                \"value\": \"email_verified_at\"\n            },\n            {\n                \"label\": \"CREATED AT\",\n                \"value\": \"created_at\"\n            },\n            {\n                \"label\": \"UPDATED AT\",\n                \"value\": \"updated_at\"\n            }\n        ],\n        \"data\": {\n            \"current_page\": 1,\n            \"data\": [\n                {\n                    \"id\": 1000,\n                    \"name\": \"Jerald Mills V\",\n                    \"email\": \"eklocko@example.org\",\n                    \"email_verified_at\": \"2023-12-19T03:01:46.000000Z\",\n                    \"created_at\": \"2023-12-19T03:01:49.000000Z\",\n                    \"updated_at\": \"2023-12-19T03:01:49.000000Z\"\n                },\n                {\n                    \"id\": 500,\n                    \"name\": \"Dr. Holden Mills V\",\n                    \"email\": \"hermann.oda@example.com\",\n                    \"email_verified_at\": \"2023-12-19T03:01:46.000000Z\",\n                    \"created_at\": \"2023-12-19T03:01:48.000000Z\",\n                    \"updated_at\": \"2023-12-19T03:01:48.000000Z\"\n                },\n                {\n                    \"id\": 353,\n                    \"name\": \"Jovan Mills\",\n                    \"email\": \"cummings.monty@example.net\",\n                    \"email_verified_at\": \"2023-12-19T03:01:46.000000Z\",\n                    \"created_at\": \"2023-12-19T03:01:47.000000Z\",\n                    \"updated_at\": \"2023-12-19T03:01:47.000000Z\"\n                },\n                {\n                    \"id\": 22,\n                    \"name\": \"Darrin Mills\",\n                    \"email\": \"hills.juwan@example.org\",\n                    \"email_verified_at\": \"2023-12-19T03:01:46.000000Z\",\n                    \"created_at\": \"2023-12-19T03:01:46.000000Z\",\n                    \"updated_at\": \"2023-12-19T03:01:46.000000Z\"\n                }\n            ],\n            \"first_page_url\": \"http://datatable-task.test/api/users?page=1\",\n            \"from\": 1,\n            \"last_page\": 1,\n            \"last_page_url\": \"http://datatable-task.test/api/users?page=1\",\n            \"links\": [\n                {\n                    \"url\": null,\n                    \"label\": \"&laquo; Previous\",\n                    \"active\": false\n                },\n                {\n                    \"url\": \"http://datatable-task.test/api/users?page=1\",\n                    \"label\": \"1\",\n                    \"active\": true\n                },\n                {\n                    \"url\": null,\n                    \"label\": \"Next &raquo;\",\n                    \"active\": false\n                }\n            ],\n            \"next_page_url\": null,\n            \"path\": \"http://datatable-task.test/api/users\",\n            \"per_page\": 10,\n            \"prev_page_url\": null,\n            \"to\": 4,\n            \"total\": 4\n        }\n    },\n    \"message\": \"\"\n}"
 				}
 			]
 		}
